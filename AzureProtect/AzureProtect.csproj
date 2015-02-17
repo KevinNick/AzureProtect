@@ -89,6 +89,26 @@
   <ItemGroup>
     <Content Include="AzureProtectPage.aspx" />
     <Content Include="GoogleJS.js" />
+    <Content Include="html\alert.html" />
+    <Content Include="html\AzureProtect.aspx" />
+    <Content Include="html\chat.html" />
+    <Content Include="html\css\css.css" />
+    <Content Include="html\css\reset.css" />
+    <Content Include="html\css\_notes\dwsync.xml" />
+    <Content Include="html\group.html" />
+    <Content Include="html\images\check.png" />
+    <Content Include="html\images\checkcircle.png" />
+    <Content Include="html\images\memberitem_bg.png" />
+    <Content Include="html\images\member_bg.png" />
+    <Content Include="html\images\normalcircle.png" />
+    <Content Include="html\images\pluscircle.png" />
+    <Content Include="html\images\profile.jpg" />
+    <Content Include="html\images\repeat.png" />
+    <Content Include="html\images\repeat_line.png" />
+    <Content Include="html\images\_notes\dwsync.xml" />
+    <Content Include="html\index.aspx" />
+    <Content Include="html\weather.html" />
+    <Content Include="html\_notes\dwsync.xml" />
     <Content Include="Icon\icon.gif" />
     <Content Include="Icon\people.png" />
     <Content Include="Icon\people1.png" />
@@ -113,16 +133,29 @@
       <DependentUpon>AzureProtectPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ClassLib.cs" />
+    <Compile Include="FunctionLib.cs" />
+    <Compile Include="html\AzureProtect.aspx.cs">
+      <DependentUpon>AzureProtect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="html\AzureProtect.aspx.designer.cs">
+      <DependentUpon>AzureProtect.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="html\sctek.sublime-project" />
+    <Content Include="html\sctek.sublime-workspace" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Page\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

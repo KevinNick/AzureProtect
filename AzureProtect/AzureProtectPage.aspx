@@ -49,7 +49,7 @@
             height: 195px;
         }
     </style>
-    <title>MultiView Tabs</title>
+    <title>Azure Protect</title>
         <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
         <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
         <script type="text/javascript" <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
@@ -57,7 +57,7 @@
             $(function () {
                 $("#AddGroup").click(function () {
                     $.ajax({
-                        url: "http://propeople.cloudapp.net/Service1.svc/Login//Info",
+                        url: "http://protecttw.cloudapp.net/Service1.svc/Login//Info",
                         data: "{}",
                         contentType: "application/json",
                         success: function (data){
@@ -547,9 +547,9 @@
                         <tr>
                             <td>
                                 <asp:TextBox ID="GroupID" runat="server"></asp:TextBox>
-                                <asp:Button ID="AddGroup" runat="server" Text="加入群組" OnClick="AddGroup_Click" />
+                                <asp:Button ID="AddGroup" runat="server" Text="加入群組ID" OnClick="AddGroup_Click" />
 
-                                <asp:Button ID="Button1" runat="server"  Text="Button" OnClick="Button1_Click1" />
+                                <%--<asp:Button ID="Button1" runat="server"  Text="Button" OnClick="Button1_Click1" />--%>
 
                             </td>
                         </tr>
@@ -629,8 +629,8 @@
                                              <asp:Menu id="Menu1" Orientation="Horizontal" Runat="server" OnMenuItemClick="Menu1_MenuItemClick">
                                             <Items>
                                             <asp:MenuItem Text="天氣特報" Value="0" />
-                                            <%--<asp:MenuItem Text="行程建議" Value="1" />--%>
-                                            <asp:MenuItem Text="聊天室" Value="1" />
+                                            <asp:MenuItem Text="天災警告" Value="1" />
+                                            <asp:MenuItem Text="聊天室" Value="2" />
                                             </Items>    
                                         </asp:Menu>
     
@@ -643,23 +643,47 @@
                                                     <table >
                                                         <tr>
                                                             <td >
-                                                                <asp:ListBox ID="ListBoxAlarm" runat="server" Width="547px" Height="227px" SelectionMode="Multiple">
-                                                                    
-                                                                </asp:ListBox>
+                                                                <div style="width: 547px; height: 248px; overflow: scroll"> 
+                                                                <asp:GridView ID="ListBoxAlarm" runat="server" AutoGenerateColumns="False">
+                                                                    <Columns>
+                                                                        <asp:BoundField DataField="Location" HeaderText="地區"  />
+                                                                        <asp:BoundField DataField="Summary" HeaderText="事件"  />
+                                                                        </Columns>
+                                                                </asp:GridView>
                                                             </td>
                                                         </tr>
                                                     </table>
                                                 </asp:View>        
-                                                <%--<asp:View ID="View2" runat="server" >
+                                                <asp:View ID="View2" runat="server" >
                                                     <table>
                                                         <tr>
                                                             <td>
-                                                                <asp:ListBox ID="ListBox2" runat="server" Width="547px" Height="227px"></asp:ListBox>
+                                                                <asp:DropDownList ID="DropDownFunction" runat="server" >
+                                                                    <asp:ListItem Text ="全部" Value ="0"/>
+                                                                    <asp:ListItem Text ="地震" Value ="1"/>
+                                                                    <asp:ListItem Text ="海嘯" Value ="2"/>
+                                                                    <asp:ListItem Text ="降雨" Value ="3"/>
+                                                                    <asp:ListItem Text ="颱風" Value ="4"/>
+                                                                    <asp:ListItem Text ="水庫洩洪" Value ="5"/>
+                                                                    <asp:ListItem Text ="淹水" Value ="6"/>
+                                                                    <asp:ListItem Text ="河川高水位" Value ="8"/>
+                                                                    <asp:ListItem Text ="道路封閉" Value ="9"/>
+                                                                </asp:DropDownList>
+                                                                <asp:Button ID="SeleteButton" runat="server" Text="搜尋" OnClick="SeleteButton_Click" selectionmode="Multiple"/>
+                                                                <div style="width: 547px; height: 225px; overflow: scroll"> 
+                                                                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
+                                                                    <Columns>
+                                                                        <asp:BoundField DataField="Time" HeaderText="時間"  />
+                                                                        <asp:BoundField DataField="Type" HeaderText="類型"  />
+                                                                        <asp:BoundField DataField="Summary" HeaderText="事件"  />
+                                                                        </Columns>
+                                                                </asp:GridView>
+                                                                    </div>
                                                             </td>
                                                         </tr>
                                                     </table>
-                                                </asp:View>       --%> 
-                                                <asp:View ID="View2" runat="server">
+                                                </asp:View>        
+                                                <asp:View ID="View3" runat="server">
                                                     <table>
                                                         <tr>
                                                             <td>
@@ -668,7 +692,8 @@
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <asp:TextBox ID="MessageText" runat="server" Width="485px"></asp:TextBox>
+                                                                <asp:DropDownList ID="DropDownListGroup" runat="server" />
+                                                                <asp:TextBox ID="MessageText" runat="server" Width="481px"></asp:TextBox>
                                                                 <asp:Button ID="SendButton" runat="server" Text="送出" OnClick="SendButton_Click"></asp:Button>
                                                             </td>
                                                         </tr>

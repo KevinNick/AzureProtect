@@ -111,7 +111,7 @@ namespace AzureProtect
         {
             GroupUser = new List<GroupUserInfo>();
         }
-        public string resoult { get; set; }
+        public string master { get; set; }
     }
 
     public class GroupUserInfo
@@ -122,6 +122,43 @@ namespace AzureProtect
         public string UserEmail { get; set; }
         public string UserLongitude { get; set; }
         public string UserLatitude { get; set; }
+        public List<AlarmInfomation> alarm;
+        public GroupUserInfo()
+        {
+            alarm = new List<AlarmInfomation>();
+        }
+    }
+
+    public class AlarmInfomation
+    {
+        public string AlarmType { get; set; }
+        public string AlarmMessage { get; set; }
+        public string Longitude { get; set; }
+        public string Latitude { get; set; }
+        public string AlarmTime { get; set; }
+        public List<HideoutInfomation> hideout;
+        public AlarmInfomation()
+        {
+            hideout = new List<HideoutInfomation>();
+        }
+    }
+
+    public class UpdateAlarmInfo
+    {
+        public string UserName { get; set; }
+        public string AlarmMessage { get; set; }
+        public string Longitude { get; set; }
+        public string Latitude { get; set; }
+        public string AlarmTime { get; set; }
+    }
+
+    public class HideoutInfomation
+    {
+        public string SiteAddress { get; set; }
+        public string SiteLongitude { get; set; }
+        public string SiteLatitude { get; set; }
+        public string SiteName { get; set; }
+        public string SitePhone { get; set; }
     }
 
     public class hazards
@@ -187,9 +224,40 @@ namespace AzureProtect
         public string GroupName { get; set; }
     }
 
+    public class MessageManagment
+    {
+        public string MessageID { get; set; }
+        public string Time { get; set; }
+        public string Content { get; set; }
+        public string Longitude { get; set; }
+        public string Latitude { get; set; }
+        public string PriolotyID { get; set; }
+        public string UserID { get; set; }
+        public string type { get; set; }
+        public string trigger { get; set; }
+    }
+
+    public class OpenDataInfo
+    {
+        public string OpenDataID { get; set; }
+        public string OpenDataTitle { get; set; }
+        public string OpenDataUpdate { get; set; }
+        public string OpenDataSummary { get; set; }
+    }
     //public class hazardsaffectedAreas
     //{
     //    public string locationName;
     //}
+
+    public class WeatherAlarm
+    {
+        public string Location { get; set; }
+        public string Summary { get; set; }
+    }
+
+    public class UserMessage
+    {
+        public string Message { get; set; }
+    }
 
 }
